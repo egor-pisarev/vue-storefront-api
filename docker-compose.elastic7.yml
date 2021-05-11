@@ -17,8 +17,3 @@ services:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-
-  redis:
-    image: 'redis:4-alpine'
-    ports:
-      - '6379:6379'

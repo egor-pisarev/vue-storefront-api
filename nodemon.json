@@ -1,7 +1,7 @@
 {
   "verbose": true,
   "debug": false,
-  "exec": "node -r ts-node/register src/",
+  "exec": "node --max_old_space_size=1024 --max-http-header-size=98304 -r ts-node/register src/",
   "watch": ["./src"],
   "ext": "ts, js",
   "inspect": true

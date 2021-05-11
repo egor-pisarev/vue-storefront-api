@@ -9,8 +9,8 @@ import api from './api';
 import config from 'config';
 import img from './api/img';
 import invalidateCache from './api/invalidate'
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-import { makeExecutableSchema } from 'graphql-tools';
+// import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+// import { makeExecutableSchema } from 'graphql-tools';
 import resolvers from './graphql/resolvers';
 import typeDefs from './graphql/schema';
 import * as path from 'path'
@@ -55,21 +55,21 @@ initializeDb(db => {
 });
 
 // graphQl Server part
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers
-});
+// const schema = makeExecutableSchema({
+//   typeDefs,
+//   resolvers
+// });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/graphql', graphqlExpress(req => ({
-  schema,
-  context: { req: req },
-  rootValue: global
-})));
+// app.use('/graphql', graphqlExpress(req => ({
+//   schema,
+//   context: { req: req },
+//   rootValue: global
+// })));
 
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+// app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
 app.use((err, req, res, next) => {
   const { statusCode = 500, message = '', stack = '' } = err;
